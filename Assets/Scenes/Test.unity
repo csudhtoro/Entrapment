@@ -241,7 +241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 4068154715580085474, guid: f2f65765aaa0f014a89c1b02c80c4810, type: 3}
-  floor: {fileID: 1493992638530467106, guid: b2743df8c0121ac429b9b9bb4a0ca25b, type: 3}
+  floor: {fileID: 2139831739527997136, guid: a67cf7e3fa7a60e4ba4d548936819be4, type: 3}
+  room: {fileID: 2850701862573548425, guid: 1afa77c67ab09fd498ddaf07a8c5e0a5, type: 3}
   wallLength: 2
   xSize: 15
   ySize: 15

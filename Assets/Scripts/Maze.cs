@@ -16,6 +16,7 @@ public class Maze : MonoBehaviour
 
     public GameObject wall;
     public GameObject floor;
+    public GameObject room;
     public float wallLength = 1.0f;
     public int xSize = 5;
     public int ySize = 5;
@@ -41,7 +42,7 @@ public class Maze : MonoBehaviour
     {
         createWalls();
         createCells();
-
+        Invoke("generateCopies", .01f);
     }
 
     void createWalls()
@@ -49,6 +50,7 @@ public class Maze : MonoBehaviour
 
         wallHolder = new GameObject();
         wallHolder.name = "Maze";
+     
 
         initialPos = new Vector3((-xSize / 2) + wallLength / 2, 0f, (-ySize / 2) + wallLength / 2);
         Vector3 myPos = initialPos;
@@ -102,7 +104,7 @@ public class Maze : MonoBehaviour
                 tempFloor.transform.parent = wallHolder.transform;
             }
         }
-
+        
     }
 
     void createCells()
@@ -175,7 +177,7 @@ public class Maze : MonoBehaviour
         }
         Debug.Log("Finished");
     }
-
+    
     void breakWall()
     {
         switch(wallToBreak)
@@ -263,6 +265,17 @@ public class Maze : MonoBehaviour
                 backingUp--;
             }
         }
+    }
+
+    void generateCopies()
+    {
+        //makes copies of the maze for players 2-4
+        Instantiate(wallHolder, new Vector3(39.01f,0f, 13.06f), Quaternion.Euler(0f,90f,0f));
+        Instantiate(wallHolder, new Vector3(52.19f,0,-25.89f), Quaternion.Euler(0f,180f,0f));
+        Instantiate(wallHolder, new Vector3(13.06f,0,-38.98f), Quaternion.Euler(0f,-90f,0f));
+
+        //create the middle room
+        Instantiate(room, new Vector3(-0.04f, 0f, 0.1f), Quaternion.identity);
     }
 
     // Update is called once per frame
