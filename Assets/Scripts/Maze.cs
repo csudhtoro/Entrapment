@@ -271,8 +271,8 @@ public class Maze : MonoBehaviour
     {
         //makes copies of the maze for players 2-4
         Instantiate(wallHolder, new Vector3(39.01f,0f, 13.06f), Quaternion.Euler(0f,90f,0f));
-        Instantiate(wallHolder, new Vector3(52.19f,0,-25.89f), Quaternion.Euler(0f,180f,0f));
-        Instantiate(wallHolder, new Vector3(13.06f,0,-38.98f), Quaternion.Euler(0f,-90f,0f));
+        Instantiate(wallHolder, new Vector3(52.19f,0f,-25.89f), Quaternion.Euler(0f,180f,0f));
+        Instantiate(wallHolder, new Vector3(13.06f,0f,-38.98f), Quaternion.Euler(0f,-90f,0f));
 
         //create the middle room
         Instantiate(room, new Vector3(-0.04f, 0f, 0.1f), Quaternion.identity);
