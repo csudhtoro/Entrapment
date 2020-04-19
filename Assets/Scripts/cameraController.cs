@@ -23,7 +23,8 @@ public class cameraController : MonoBehaviour
         }
 
         pivot.transform.position = target.transform.position;
-        pivot.transform.parent = target.transform;
+        //pivot.transform.parent = target.transform;
+        pivot.transform.parent = null;
 
         //removes the mouse icon from the scene in play mode
         Cursor.lockState = CursorLockMode.Locked;
@@ -33,9 +34,12 @@ public class cameraController : MonoBehaviour
     void LateUpdate()
     {
 
-        //get x position of the mouse and rotate the target
+        //allow camera to stay in place separate from the player
+        pivot.transform.position = target.transform.position;
+
+        //get x position of the mouse and rotate the pivot
         float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
-        target.Rotate(0f, horizontal, 0f);
+        pivot.Rotate(0f, horizontal, 0f);
 
         //get the y position of the mouse & ritate the pivot
         float vertical = Input.GetAxis("Mouse Y") * rotateSpeed;
@@ -58,7 +62,7 @@ public class cameraController : MonoBehaviour
         }
 
         //move the camera based on the current rotation of the target and the original offset
-        float desiredYAngle = target.eulerAngles.y;
+        float desiredYAngle = pivot.eulerAngles.y;
         float desiredXAngle = pivot.eulerAngles.x;
         Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAngle, 0f);
         transform.position = target.position - (rotation * offset);
